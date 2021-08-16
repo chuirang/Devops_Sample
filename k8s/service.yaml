@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sampleapp-container-svc
+  labels:
+    app: sampleapp-container
+spec:
+  ports:
+  - name: http
+    port: 18186
+    targetPort: 18186
+  selector:
+    app: sampleapp-container
+  type: LoadBalancer

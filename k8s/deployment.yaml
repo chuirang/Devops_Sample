@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sampleapp
+  labels:
+    app: sampleapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sampleapp-container
+  template:
+    metadata:
+      labels:
+        app: sampleapp-container
+    spec:
+      containers:
+        - name: sampleapp
+          image: chuirang/sampleapp:latest         
+          env:
+            - name: PORT
+              value: "18186"
+          ports:
+            - containerPort: 18186
